@@ -1,90 +1,254 @@
 
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#10070b">
-<title>Мирные демоны 🩸</title>
-<style>
-*{box-sizing:border-box}
-body{
- margin:0;background:#10070b;color:#f7edf1;
- font-family:Georgia,serif;line-height:1.7;
+/* =================================
+   МИРНЫЕ ДЕМОНЫ — BLOOD THEME
+   ================================= */
+
+:root {
+  --bg: #080607;
+  --bg-secondary: #12090c;
+  --card: #180b10;
+  --red: #a10e26;
+  --red-bright: #e11d3f;
+  --text: #f5eeee;
+  --muted: #b8a5aa;
+  --border: #49202a;
 }
-header,section,footer{padding:25px 20px;max-width:900px;margin:auto}
-header{text-align:center;border-bottom:1px solid #54202e}
-.logo{font-size:22px;color:#ff8ba8;letter-spacing:3px}
-.hero{text-align:center;padding-top:75px;padding-bottom:70px}
-.symbol{font-size:65px;color:#e84870;text-shadow:0 0 30px #a31340}
-h1{font-size:clamp(38px,9vw,65px);line-height:1.15;margin:15px 0}
-h1 span{color:#ed547c}
-p{color:#cbb7c0}
-.btn{
- display:inline-block;margin:8px;padding:12px 22px;
- border:1px solid #a62d4e;border-radius:9px;
- text-decoration:none;color:white;background:#3a101e;
+
+* {
+  box-sizing: border-box;
 }
-.primary{background:#a92349;box-shadow:0 0 20px #75142e}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
-.card{
- background:#1b0e15;border:1px solid #54202e;
- border-radius:12px;padding:20px;
+
+html {
+  scroll-behavior: smooth;
 }
-.card h3{color:#ff8ba8}
-h2{text-align:center;color:#ff8ba8}
-.support{text-align:center;border:1px solid #67253a;border-radius:15px;background:#1b0e15}
-footer{text-align:center;color:#927b85;font-size:13px}
-</style>
-</head>
-<body>
-<header>
- <div class="logo">☾ МИРНЫЕ ДЕМОНЫ ☽</div>
- <p>Тёмная эстетика. Живое общение.</p>
-</header>
 
-<main>
-<section class="hero">
- <div class="symbol">☠</div>
- <p>ТВОЯ ИСТОРИЯ НАЧИНАЕТСЯ ЗДЕСЬ</p>
- <h1>Добро пожаловать<br><span>во тьму.</span></h1>
- <p>Мирные демоны — место для общения, новых знакомств и людей, с которыми можно быть собой.</p>
- <a class="btn primary" href="https://t.me/Mirnye_Demony_bot">🩸 Открыть бота</a>
- <a class="btn" href="#about">Узнать о проекте</a>
-</section>
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at top, #330711 0%, transparent 48%),
+    var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+}
 
-<section id="about">
- <h2>✧ О нашем проекте ✧</h2>
- <div class="cards">
-  <article class="card">
-   <h3>☾ Общение</h3>
-   <p>Знакомься с людьми и находи собеседников по душе.</p>
-  </article>
-  <article class="card">
-   <h3>♡ Поддержка</h3>
-   <p>Делись мыслями, слушай других и не бойся быть собой.</p>
-  </article>
-  <article class="card">
-  <section>
- <h2>✧ Как присоединиться? ✧</h2>
- <div class="cards">
-  <article class="card"><h3>01. Перейди в бота</h3><p>Нажми на кнопку запуска.</p></article>
-  <article class="card"><h3>02. Следуй меню</h3><p>Ознакомься с инструкциями бота.</p></article>
-  <article class="card"><h3>03. Будь собой</h3><p>Начинай знакомиться и общаться.</p></article>
- </div>
-</section>
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
 
-<section id="donate" class="support">
- <h2>🩸 Поддержать проект</h2>
- <p>Твоя поддержка помогает развивать «Мирных демонов» и делать проект лучше.</p>
- <p>
- <a class="btn primary" href="https://t.me/Mirnye_Demony_bot">Перейти в Telegram</a>
-</section>
-</main>
+a:hover {
+  color: var(--red-bright);
+}
 
-<footer>
- <p>☾ Мирные демоны ☽</p>
- <p>Создано с любовью к нашим пользователям</p>
-</footer>
-</body>
-</html>
+::selection {
+  background: var(--red);
+  color: white;
+}
+
+/* Шапка сайта */
+
+header,
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8, 6, 7, 0.92);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 7%;
+}
+
+.logo {
+  color: #fff;
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.logo span {
+  color: var(--red-bright);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+/* Главный экран */
+
+.hero {
+  min-height: 78vh;
+  padding: 100px 7%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background:
+    linear-gradient(90deg, rgba(8,6,7,.98), rgba(8,6,7,.58)),
+    radial-gradient(circle at 75% 40%, #7b1027 0%, #250811 35%, #080607 72%);
+}
+
+.hero h1 {
+  max-width: 850px;
+  margin: 0 0 22px;
+  font-size: clamp(38px, 7vw, 76px);
+  line-height: 1.08;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-shadow: 0 0 35px #8d102d55;
+}
+
+.hero h1 span {
+  color: var(--red-bright);
+}
+
+.hero p {
+  max-width: 650px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+/* Кнопки */
+
+.btn,
+button {
+  display: inline-block;
+  padding: 13px 25px;
+  margin: 8px 8px 8px 0;
+  border: 1px solid var(--red);
+  border-radius: 5px;
+  background: var(--red);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.btn:hover,
+button:hover {
+  background: var(--red-bright);
+  color: white;
+  border-color: var(--red-bright);
+  box-shadow: 0 0 24px #e11d3f55;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: #733040;
+}
+
+/* Секции */
+
+section {
+  padding: 75px 7%;
+}
+
+.section-title {
+  margin-bottom: 35px;
+  font-size: clamp(27px, 4vw, 42px);
+  text-transform: uppercase;
+}
+
+.section-title span {
+  color: var(--red-bright);
+}
+
+/* Карточки */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 22px;
+}
+
+.card {
+  padding: 28px;
+  background: linear-gradient(145deg, #1b0c11, #0e090b);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--red);
+  box-shadow: 0 12px 35px #0008, 0 0 20px #8d102d18;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #ff526b;
+  font-size: 21px;
+}
+
+.card p {
+  color: var(--muted);
+}
+
+/* Донаты */
+
+.donate {
+  text-align: center;
+  background:
+    radial-gradient(ellipse at center, #3c0b18 0%, #10080b 65%);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.donate p {
+  max-width: 620px;
+  margin: 0 auto 20px;
+  color: var(--muted);
+}
+
+/* Нижняя часть сайта */
+
+footer {
+  padding: 30px 7%;
+  background: #050405;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Мобильная версия */
+
+@media (max-width: 600px) {
+  .navbar {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 15px 5%;
+  }
+
+  nav {
+    gap: 12px;
+    font-size: 14px;
+  }
+
+  .hero {
+    min-height: 65vh;
+    padding: 75px 5%;
+  }
+
+  section {
+    padding: 55px 5%;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
