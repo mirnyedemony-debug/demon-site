@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080101">
   <title>ⲙυⲣⲏыⲉ ⲇⲉⲙⲟⲏы</title>
+
+  <!-- Готический и изящный шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -22,7 +26,7 @@
       min-height: 100vh;
       background: #080101;
       color: #d5bcbc;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: 'Cormorant Garamond', Georgia, serif;
       overflow-x: hidden;
     }
 
@@ -42,16 +46,18 @@
     h1 {
       margin: 0 0 20px;
       color: #ff4652;
-      font-size: clamp(30px, 7vw, 58px);
-      letter-spacing: .08em;
+      font-family: 'UnifrakturMaguntia', serif;
+      font-size: clamp(38px, 8vw, 72px);
+      font-weight: 400;
+      letter-spacing: .04em;
       overflow-wrap: anywhere;
-      text-shadow: 0 0 18px #a0001644;
+      text-shadow: 0 0 12px #a0001666, 0 0 28px #a0001644;
     }
 
     .intro {
       max-width: 750px;
       margin: auto;
-      font-size: clamp(17px, 3.5vw, 22px);
+      font-size: clamp(19px, 3.5vw, 25px);
       line-height: 1.8;
     }
 
@@ -72,24 +78,35 @@
       background: linear-gradient(145deg, #190506, #090202);
       border: 1px solid #a11925;
       box-shadow: 0 0 16px #50000844;
+      transition: border-color .3s, box-shadow .3s;
+    }
+
+    .card:hover {
+      border-color: #ff4652;
+      box-shadow: 0 0 22px #a0001655;
     }
 
     .symbol {
       margin-bottom: 14px;
-      font-size: 34px;
+      color: #ff4652;
+      font-size: 35px;
+      text-shadow: 0 0 12px #a00016;
     }
 
     h2 {
       margin: 10px 0 16px;
       color: #ff4b55;
-      font-size: clamp(21px, 4vw, 30px);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(23px, 4vw, 32px);
+      font-weight: 600;
+      letter-spacing: .04em;
       line-height: 1.4;
       overflow-wrap: anywhere;
     }
 
     .card p {
       margin: 0;
-      font-size: clamp(16px, 3.4vw, 21px);
+      font-size: clamp(18px, 3.4vw, 23px);
       line-height: 1.75;
       overflow-wrap: anywhere;
     }
@@ -97,6 +114,14 @@
     .join-area {
       padding: 25px 18px 55px;
       text-align: center;
+    }
+
+    .join-symbol {
+      margin-bottom: 18px;
+      color: #b51b2b;
+      font-size: 24px;
+      letter-spacing: 8px;
+      text-shadow: 0 0 12px #a00016;
     }
 
     .join-button {
@@ -111,8 +136,9 @@
       color: #fff;
       text-decoration: none;
       text-align: center;
-      font-size: 16px;
-      font-weight: bold;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 21px;
+      font-weight: 700;
       letter-spacing: 1px;
       box-shadow: 0 0 18px #a0001644;
       transition: .2s;
@@ -121,6 +147,7 @@
     .join-button:hover {
       background: #ed1025;
       transform: translateY(-2px);
+      box-shadow: 0 0 28px #a0001688;
     }
 
     footer {
@@ -131,7 +158,17 @@
       text-align: center;
       background: linear-gradient(135deg, #4d0008, #100202);
       border: 1px solid #a91a26;
-      letter-spacing: .12em;
+      letter-spacing: .08em;
+      font-size: 18px;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    .footer-symbol {
+      color: #ff4652;
+      margin-right: 6px;
     }
 
     .editor-tools {
@@ -203,7 +240,7 @@
       footer {
         width: calc(100% - 28px);
         padding: 20px 10px;
-        font-size: 13px;
+        font-size: 15px;
       }
 
       .editor-tools button {
@@ -215,12 +252,12 @@
 
 <body>
   <header>
-    <h1 data-edit="title">
+    <h1 data-edit="title">МИРНЫЕ ДЕМОНЫ</h1>
 
-      МИРНЫЕ ДЕМОНЫ</h1>
+    <div class="symbol" aria-hidden="true">༺ ♱ ༻</div>
 
     <p class="intro" data-edit="intro">
-      «мирные демоны» — анонимный телеграм-бот для оказания психологическтй помощи и общения. 
+      «мирные демоны» — анонимный телеграм-бот для оказания психологической помощи и общения.
     </p>
   </header>
 
@@ -228,43 +265,53 @@
     <section>
       <div class="cards">
         <article class="card">
-          <div class="symbol" aria-hidden="true">✦</div>
+          <div class="symbol" aria-hidden="true">𖤐</div>
 
           <h2 data-edit="helpTitle">
             ПСИХОЛОГИЧЕСКАЯ ПОМОЩЬ
           </h2>
 
           <p data-edit="helpText">
-            Не держите всё в себе, выплесните. наш долг — направлять Вас. 
+            Не держите всё в себе, выплесните. Наш долг — направлять Вас.
           </p>
         </article>
 
         <article class="card">
-          <div class="symbol" aria-hidden="true">✦</div>
+          <div class="symbol" aria-hidden="true">☽</div>
 
           <h2 data-edit="chatTitle">ОБЩЕНИЕ</h2>
 
           <p data-edit="chatText">
-            Диалоги, которые помогут утолить скуку
-            или одиночество. 
+            Диалоги, которые помогут утолить скуку или одиночество.
           </p>
         </article>
       </div>
     </section>
 
     <section class="join-area">
+      <div class="join-symbol" aria-hidden="true">
+        ━━━ ♱ ━━━
+      </div>
+
       <a
         class="join-button"
         href="https://t.me/Mirnye_Demony_bot"
         target="_blank"
         rel="noopener noreferrer"
         data-edit="buttonText"
-      >Войти на территорию</a>
+      >✧ Войти на территорию ✧</a>
     </section>
   </main>
 
   <footer>
-    <p data-edit="footerText">пренадлежит проекту: @Mirnye_Demony_bot/p>
+    <p data-edit="footerText">
+      <span class="footer-symbol">†</span>
+      принадлежит проекту: @Mirnye_Demony_bot
+      <span class="footer-symbol">†</span>
+    </p>
+  </footer>
+</body>
+</html>
   
 
   
