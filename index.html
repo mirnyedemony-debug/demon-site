@@ -4,11 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080303">
+  <meta name="theme-color" content="#080000">
+  <title>Мирные демоны — общение и поддержка</title>
 
-  <title>Мирные демоны</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -22,187 +21,216 @@
     }
 
     body {
-      background: #080303;
-      color: #f5e9ea;
+      background: #080000;
+      color: #f5eeee;
       font-family: 'Cormorant Garamond', serif;
     }
 
-    header {
-      padding: 25px 15px;
-      text-align: center;
-      border-bottom: 1px solid #500813;
-      background: #0b0405;
-    }
-
-    header h1 {
-      font-family: 'UnifrakturMaguntia', cursive;
-      color: #ed1028;
-      font-size: clamp(34px, 7vw, 54px);
-      font-weight: 400;
-      text-shadow: 0 0 18px rgba(237, 16, 40, .5);
-    }
-
     .hero {
-      min-height: 70vh;
-      padding: 75px 20px;
+      min-height: 100vh;
+      position: relative;
       display: flex;
-      align-items: center;
       justify-content: center;
-      text-align: center;
+      align-items: center;
+      padding: 35px 20px;
+      overflow: hidden;
       background:
-        radial-gradient(
-          ellipse at center,
-          rgba(130, 0, 20, .3),
-          transparent 70%
-        ),
-        #080303;
+        radial-gradient(ellipse at center, #340000 0%, #130000 48%, #050000 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom,
+          rgba(0,0,0,.12),
+          rgba(0,0,0,.15) 55%,
+          #080000 100%);
+      z-index: 1;
+    }
+
+    .hero-art {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: .8;
+      filter: drop-shadow(0 0 25px rgba(255,0,0,.18));
     }
 
     .content {
+      position: relative;
+      z-index: 2;
       width: 100%;
-      max-width: 750px;
-      margin: auto;
+      max-width: 760px;
+      text-align: center;
+      padding: 45px 20px;
+      background: rgba(8,0,0,.48);
+      border: 1px solid rgba(255,0,0,.18);
+      box-shadow: 0 0 70px rgba(180,0,0,.08);
+      backdrop-filter: blur(2px);
+    }
+
+    .symbol {
+      color: #ff2525;
+      font-size: 38px;
+      text-shadow: 0 0 22px #ff0000;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: 'UnifrakturCook', 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 8vw, 82px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: #ff2929;
+      text-shadow:
+        0 0 5px #ff0000,
+        0 0 20px rgba(255,0,0,.7),
+        0 0 45px rgba(150,0,0,.55);
+    }
+
+    .subtitle {
+      margin-top: 18px;
+      color: #e7bcbc;
+      font-size: clamp(17px, 3vw, 23px);
+      letter-spacing: 4px;
+      text-transform: uppercase;
     }
 
     .description {
-      color: #d0bfc0;
-      font-size: 23px;
+      max-width: 540px;
+      margin: 28px auto 0;
+      color: #d1bbbb;
+      font-size: 19px;
       line-height: 1.8;
-      margin-bottom: 35px;
     }
 
-    .line {
-      width: 130px;
-      height: 1px;
-      background: #ed1028;
-      margin: 25px auto;
-      box-shadow: 0 0 10px #ed1028;
-    }
-
-    .services {
-      padding: 65px 20px;
-      border-top: 1px solid #40070e;
-      background: #100507;
-    }
-
-    .services h2 {
-      color: #ed1028;
-      font-family: 'UnifrakturMaguntia', cursive;
-      font-weight: 400;
-      font-size: clamp(35px, 6vw, 49px);
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .cards {
-      max-width: 850px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      padding: 30px 22px;
-      text-align: center;
-      background: #16090c;
-      border: 1px solid #60101b;
-      transition: .25s;
-    }
-
-    .card:hover {
-      border-color: #ed1028;
-      box-shadow: 0 0 20px rgba(237, 16, 40, .12);
-      transform: translateY(-3px);
-    }
-
-    .icon {
-      font-size: 35px;
-      margin-bottom: 12px;
-      color: #ed1028;
-    }
-
-    .card h3 {
-      font-size: 27px;
-      color: #ff4054;
-      margin-bottom: 12px;
-    }
-
-    .card p {
-      color: #c9b6b8;
-      font-size: 20px;
-      line-height: 1.7;
-    }
-
-    .join {
-      padding: 70px 20px 85px;
-      text-align: center;
-      background: radial-gradient(
-        ellipse at center,
-        rgba(110, 0, 16, .2),
-        transparent 75%
-      );
-    }
-
-    .join h2 {
-      font-family: 'UnifrakturMaguntia', cursive;
-      color: #ed1028;
-      font-weight: 400;
-      font-size: clamp(36px, 6vw, 52px);
-      margin-bottom: 20px;
-    }
-
-    .join p {
-      max-width: 570px;
-      margin: 0 auto 30px;
-      color: #c9b6b8;
-      font-size: 22px;
-      line-height: 1.7;
+    .divider {
+      margin: 28px auto;
+      color: #b90000;
+      letter-spacing: 8px;
+      text-shadow: 0 0 12px red;
     }
 
     .button {
       display: inline-block;
-      padding: 15px 35px;
+      margin-top: 12px;
+      padding: 17px 30px;
+      border: 1px solid #ff2929;
+      background: linear-gradient(135deg, #a90000, #450000);
       color: white;
-      background: #a90018;
-      border: 1px solid #ed1028;
-      font-size: 22px;
-      font-family: 'Cormorant Garamond', serif;
       text-decoration: none;
-      transition: .25s;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      box-shadow: 0 0 20px rgba(255,0,0,.22);
+      transition: .3s;
     }
 
     .button:hover {
-      background: #ed1028;
-      box-shadow: 0 0 25px rgba(237, 16, 40, .4);
-      transform: translateY(-2px);
+      background: #d00000;
+      box-shadow: 0 0 35px rgba(255,0,0,.55);
+      transform: translateY(-3px);
+    }
+
+    .note {
+      margin-top: 20px;
+      color: #9c7777;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .about {
+      padding: 90px 22px;
+      text-align: center;
+      background: #080000;
+    }
+
+    .about h2 {
+      color: #ff2929;
+      font-family: 'UnifrakturCook', serif;
+      font-size: clamp(35px, 6vw, 54px);
+      text-shadow: 0 0 18px rgba(255,0,0,.35);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 40px auto 0;
+    }
+
+    .card {
+      padding: 30px 22px;
+      background: linear-gradient(145deg, #1b0707, #0c0303);
+      border: 1px solid #481010;
+      transition: .3s;
+    }
+
+    .card:hover {
+      border-color: #b90000;
+      box-shadow: 0 0 25px rgba(255,0,0,.1);
+      transform: translateY(-5px);
+    }
+
+    .card .icon {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      color: #ff4747;
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #bca5a5;
+      font-size: 17px;
+      line-height: 1.7;
     }
 
     footer {
-      padding: 22px 15px;
-      border-top: 1px solid #40070e;
+      padding: 30px 20px;
       text-align: center;
-      color: #887477;
-      font-size: 16px;
+      border-top: 1px solid #321010;
+      color: #795b5b;
+      font-size: 14px;
     }
 
-    @media (max-width: 600px) {
-      .hero {
-        min-height: 60vh;
-        padding: 55px 20px;
+    @media (max-width: 650px) {
+      .content {
+        padding: 35px 16px;
+      }
+
+      .subtitle {
+        letter-spacing: 2px;
       }
 
       .description {
-        font-size: 20px;
+        font-size: 17px;
       }
 
       .cards {
         grid-template-columns: 1fr;
-        max-width: 400px;
       }
 
-      .button {
-        max-width: 100%;
+      .hero-art {
+        object-fit: cover;
+        opacity: .35;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
       }
     }
   </style>
@@ -210,66 +238,89 @@
 
 <body>
 
-  <header>
-    <h1>Мирные демоны</h1>
-  </header>
-
   <main>
-
     <section class="hero">
+
+      <!-- Положи изображение рядом с index.html
+           и назови его demons.jpg -->
+      <img
+        class="hero-art"
+        src="demons.jpg"
+        alt=""
+        aria-hidden="true"
+      >
+
       <div class="content">
+        <div class="symbol">✧</div>
 
-        <div class="line"></div>
+        <h1>Мирные демоны</h1>
 
-        <p class="description">
-          «Мирные демоны» — анонимный Telegram-бот
-          для оказания психологической помощи и общения, за которым стоят реальные люди. 
+        <p class="subtitle">
+          Телеграм-бот
         </p>
 
-        <div class="line"></div>
+        <div class="divider">━━━━ ✦ ━━━━</div>
 
-      </div>
-    </section>
+        <p class="description">
+          «мирные демоны». — анонимный телеграм-бот, за которым стоят люди, для оказания психологической поддержки и общения. 
+        </p>
 
-    <section class="services">
-
-      <h2>какие услуги мы предоставляем:</h2>
+        <a
+          class="button"
+          href="https://t.me/Mirnye_Demony"
+          target="_blank"
+          rel="noopener noreferrer"
+      <section class="about">
+      <h2>наши услуги:</h2>
 
       <div class="cards">
-
-        <div class="card">
-          <div class="icon">✧</div>
-
-          <h3>Психологическая помощь</h3>
-
+        <article class="card">
+          <div class="icon">☽</div>
+          <h3>Анонимность</h3>
           <p>
-            не дышите в себе боль, выплесните. наш долг — направлять Вас. 
+            не бойтесь за свою конфиденциальность. 
           </p>
-        </div>
+        </article>
 
-        <div class="card">
-          <div class="icon">☾</div>
-
-          <h3>Общение</h3>
-душевные диалоги
+        <article class="card">
+          <div class="icon">🩸</div>
+          <h3>психологическая помощь</h3>
           <p>
-            
-          
-        
+            не держите всё в себе, выплесните. наш долг — направлять Вас. 
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">✧</div>
+          <h3>Общение</h3>
+          <p>
+            диалоги, которые утолят скуку
+          или одиночество. 
+          </p>
+        </article>
+      </div>
+
+      <a
         class="button"
-        href="https://t.me/Mirnye_Demony_bot"
+        href="https://t.me/Mirnye_Demony"
         target="_blank"
         rel="noopener noreferrer"
-      
-        войти на территорию копна. ↗
-  
+      >
+      войти на территорию клана. 
+      </a>
+    </section>
+  </main>
 
   <footer>
-    пренадлежит проекту: @Mirnye_Demony_bot
+    <p>МИРНЫЕ ДЕМОНЫ © 2026</p>
+    <p style="margin-top: 10px;">
+      
+    </p>
   </footer>
 
 </body>
 </html>
+
 
 
       
