@@ -1,409 +1,160 @@
-
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080000">
-  <title>Мирные демоны — общение и поддержка</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: #080000;
-      color: #f5eeee;
-      font-family: 'Cormorant Garamond', serif;
-      overflow-x: hidden;
-    }
-
-    .hero {
-      min-height: 100vh;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 35px 20px;
-      overflow: hidden;
-      background: radial-gradient(
-        ellipse at center,
-        #340000 0%,
-        #130000 48%,
-        #050000 100%
-      );
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, .12),
-        rgba(0, 0, 0, .15) 55%,
-        #080000 100%
-      );
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .hero-art {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      opacity: .8;
-      filter: drop-shadow(0 0 25px rgba(255, 0, 0, .18));
-    }
-
-    .content {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: 760px;
-      text-align: center;
-      padding: 45px 25px;
-      background: rgba(8, 0, 0, .65);
-      border: 1px solid rgba(255, 0, 0, .18);
-      box-shadow: 0 0 70px rgba(180, 0, 0, .08);
-      backdrop-filter: blur(3px);
-    }
-
-    .symbol {
-      color: #ff2525;
-      font-size: 38px;
-      text-shadow: 0 0 22px #ff0000;
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      font-family: 'UnifrakturCook', 'Cormorant Garamond', serif;
-      font-size: clamp(42px, 8vw, 82px);
-      font-weight: 700;
-      line-height: 1.2;
-      color: #ff2929;
-      text-shadow:
-        0 0 5px #ff0000,
-        0 0 20px rgba(255, 0, 0, .7),
-        0 0 45px rgba(150, 0, 0, .55);
-      overflow-wrap: anywhere;
-    }
-
-    .subtitle {
-      margin-top: 18px;
-      color: #e7bcbc;
-      font-size: clamp(17px, 3vw, 23px);
-      letter-spacing: 4px;
-      text-transform: uppercase;
-    }
-
-    .description {
-      max-width: 540px;
-      margin: 28px auto 0;
-      color: #d1bbbb;
-      font-size: 19px;
-      line-height: 1.8;
-    }
-
-    .divider {
-      margin: 28px auto;
-      color: #b90000;
-      letter-spacing: 8px;
-      text-shadow: 0 0 12px red;
-    }
-
-    .button {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 25px;
-      padding: 16px 28px;
-      max-width: 100%;
-      border: 1px solid #ff2929;
-      background: linear-gradient(135deg, #a90000, #450000);
-      color: white;
-      text-align: center;
-      text-decoration: none;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 19px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      box-shadow: 0 0 20px rgba(255, 0, 0, .22);
-      transition: .3s;
-    }
-
-    .button:hover {
-      background: #d00000;
-      box-shadow: 0 0 35px rgba(255, 0, 0, .55);
-      transform: translateY(-3px);
-    }
-
-    .about {
-      padding: 80px 22px;
-      text-align: center;
-      background: #080000;
-    }
-
-    .about h2 {
-      color: #ff2929;
-      font-family: 'UnifrakturCook', serif;
-      font-size: clamp(35px, 6vw, 54px);
-      text-shadow: 0 0 18px rgba(255, 0, 0, .35);
-      margin-bottom: 15px;
-    }
-
-    .section-description {
-      max-width: 600px;
-      margin: 0 auto;
-      color: #c7adad;
-      font-size: 19px;
-      line-height: 1.7;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      align-items: stretch;
-      gap: 20px;
-      max-width: 1000px;
-      margin: 40px auto 0;
-    }
-
-    .card {
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 30px 22px;
-      background: linear-gradient(145deg, #1b0707, #0c0303);
-      border: 1px solid #481010;
-      transition: .3s;
-    }
-
-    .card:hover {
-      border-color: #b90000;
-      box-shadow: 0 0 25px rgba(255, 0, 0, .1);
-      transform: translateY(-5px);
-    }
-
-    .card .icon {
-      font-size: 30px;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      color: #ff4747;
-      font-size: 25px;
-      line-height: 1.35;
-      margin-bottom: 12px;
-    }
-
-    .card p {
-      color: #bca5a5;
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    .join-button {
-      margin-top: 40px;
-    }
-
-    footer {
-      padding: 30px 20px;
-      text-align: center;
-      border-top: 1px solid #321010;
-      color: #795b5b;
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    @media (max-width: 750px) {
-      .cards {
-        grid-template-columns: 1fr;
-        max-width: 460px;
-      }
-
-      .card {
-        padding: 28px 22px;
-      }
-
-      .hero-art {
-        object-fit: cover;
-        opacity: .35;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .content {
-        padding: 35px 18px;
-      }
-
-      .subtitle {
-        letter-spacing: 2px;
-      }
-
-      .description {
-        font-size: 18px;
-      }
-
-      .button {
-        width: 100%;
-        padding: 15px 12px;
-        font-size: 17px;
-      }
-
-      .about {
-        padding: 60px 18px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        transition: none !important;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <main>
-
-    <!-- ГЛАВНЫЙ ЭКРАН -->
-
-    <section class="hero">
-
-      <img
-        class="hero-art"
-        src="demons.jpg"
-        alt=""
-        aria-hidden="true"
-      >
-
-      <div class="content">
-
-        <div class="symbol">✧</div>
-
-        <h1>Мирные демоны</h1>
-
-        <p class="subtitle">
-          Телеграм-бот
-        </p>
-
-        <div class="divider">━━━━ ✦ ━━━━</div>
-
-        <p class="description">
-          «Мирные демоны» — анонимный телеграм-бот,
-          за которым стоят люди, для оказания
-          психологической поддержки и общения.
-        </p>
-
-        <a
-          class="button"
-          href="https://t.me/Mirnye_Demony"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Войти на территорию клана
-        </a>
-
-      </div>
-
-    </section>
-
-    <!-- УСЛУГИ -->
-
-    <section class="about">
-
-      <h2>Наши услуги</h2>
-
-      <p class="section-description">
-        Пространство для общения, поддержки
-        и искренних разговоров.
-      </p>
-
-      <div class="cards">
-
-        <article class="card">
-
-          <div class="icon">☽</div>
-
-          <h3>Анонимность</h3>
-
-          <p>
-            Не бойтесь за свою конфиденциальность.
-            Берегите личные данные и помните,
-            что абсолютная анонимность не гарантируется.
-          </p>
-
-        </article>
-
-        <article class="card">
-
-          <div class="icon">🩸</div>
-
-          <h3>Психологическая помощь</h3>
-
-          <p>
-            Не держите всё в себе — поделитесь
-            переживаниями. Мы готовы выслушать
-            и поддержать вас.
-          </p>
-
-        </article>
-
-        <article class="card">
-
-          <div class="icon">✧</div>
-
-          <h3>Общение</h3>
-
-          <p>
-            Диалоги, которые помогут скрасить
-            скуку или одиночество и найти
-            интересного собеседника.
-          </p>
-
-        </article>
-
-      </div>
-
-      <!-- КНОПКА ПРИСОЕДИНЕНИЯ -->
-
-      <a
-        class="button join-button"
-        href="https://t.me/Mirnye_Demony_bot"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Присоединиться к клану
-      </a>
-
-    </section>
-
-  </main>
-
-  <footer>
-    <p>МИРНЫЕ ДЕМОНЫ © 2026</p>
-  </footer>
-
-</body>
-</html>
+/* ОСНОВА */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #080101;
+  color: #d5bcbc;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* ОСНОВНОЙ КОНТЕЙНЕР */
+.container,
+.wrapper,
+main {
+  width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* СЕКЦИИ */
+section {
+  width: 100%;
+  padding: 36px 20px;
+}
+
+/* КАРТОЧКИ */
+.cards,
+.features,
+.services {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  width: 100%;
+}
+
+.card {
+  min-width: 0;
+  padding: 30px 22px;
+  text-align: center;
+  background: linear-gradient(145deg, #170606, #090202);
+  border: 1px solid #8f1018;
+  box-shadow: 0 0 12px #50000855;
+}
+
+.card h2,
+.card h3 {
+  color: #ff4b55;
+  font-size: clamp(21px, 4vw, 32px);
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.card p {
+  font-size: clamp(16px, 3.5vw, 22px);
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+/* КНОПКА */
+.join-button,
+.btn,
+a.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-width: 190px;
+  min-height: 52px;
+  padding: 14px 26px;
+  background: linear-gradient(135deg, #d90016, #78000a);
+  border: 1px solid #ff4652;
+  color: #fff !important;
+  text-decoration: none;
+  text-align: center;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #a0001644;
+}
+
+.join-button:hover,
+.btn:hover,
+a.button:hover {
+  background: #ed1025;
+}
+
+/* НЕ ПОКАЗЫВАТЬ ПУСТЫЕ ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ */
+.decoration:empty,
+.decor:empty,
+.square:empty {
+  display: none;
+}
+
+/* ПОДВАЛ */
+footer {
+  width: 100%;
+  max-width: 1100px;
+  margin: 35px auto 0;
+  padding: 28px 16px;
+  text-align: center;
+  background: linear-gradient(135deg, #8d000b, #170202);
+  border: 1px solid #ff303e;
+}
+
+footer p {
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ТЕЛЕФОНЫ */
+@media (max-width: 600px) {
+  section {
+    padding: 24px 14px;
+  }
+
+  .cards,
+  .features,
+  .services {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .card {
+    padding: 24px 18px;
+  }
+
+  .card p {
+    line-height: 1.65;
+  }
+
+  footer {
+    margin-top: 24px;
+    padding: 22px 12px;
+  }
+
+  .join-button,
+  .btn,
+  a.button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
 
 
 
