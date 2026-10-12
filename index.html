@@ -1,160 +1,389 @@
-/* ОСНОВА */
-* {
-  box-sizing: border-box;
-}
 
-html {
-  width: 100%;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080101">
+  <title>Мирные демоны</title>
 
-body {
-  margin: 0;
-  width: 100%;
-  min-height: 100vh;
-  overflow-x: hidden;
-  background: #080101;
-  color: #d5bcbc;
-  font-family: Georgia, "Times New Roman", serif;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-/* ОСНОВНОЙ КОНТЕЙНЕР */
-.container,
-.wrapper,
-main {
-  width: 100%;
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-}
+    html {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
 
-/* СЕКЦИИ */
-section {
-  width: 100%;
-  padding: 36px 20px;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #080101;
+      color: #d5bcbc;
+      font-family: Georgia, "Times New Roman", serif;
+      overflow-x: hidden;
+    }
 
-/* КАРТОЧКИ */
-.cards,
-.features,
-.services {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
-  width: 100%;
-}
+    header {
+      padding: 55px 18px 35px;
+      text-align: center;
+      border-bottom: 1px solid #78000b;
+      background: radial-gradient(ellipse, #310006, #080101 75%);
+    }
 
-.card {
-  min-width: 0;
-  padding: 30px 22px;
-  text-align: center;
-  background: linear-gradient(145deg, #170606, #090202);
-  border: 1px solid #8f1018;
-  box-shadow: 0 0 12px #50000855;
-}
+    main {
+      width: 100%;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-.card h2,
-.card h3 {
-  color: #ff4b55;
-  font-size: clamp(21px, 4vw, 32px);
-  line-height: 1.3;
-  overflow-wrap: anywhere;
-}
+    h1 {
+      margin: 0 0 20px;
+      color: #ff4652;
+      font-size: clamp(30px, 7vw, 58px);
+      letter-spacing: .08em;
+      overflow-wrap: anywhere;
+      text-shadow: 0 0 18px #a0001644;
+    }
 
-.card p {
-  font-size: clamp(16px, 3.5vw, 22px);
-  line-height: 1.8;
-  overflow-wrap: anywhere;
-}
+    .intro {
+      max-width: 750px;
+      margin: auto;
+      font-size: clamp(17px, 3.5vw, 22px);
+      line-height: 1.8;
+    }
 
-/* КНОПКА */
-.join-button,
-.btn,
-a.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  min-width: 190px;
-  min-height: 52px;
-  padding: 14px 26px;
-  background: linear-gradient(135deg, #d90016, #78000a);
-  border: 1px solid #ff4652;
-  color: #fff !important;
-  text-decoration: none;
-  text-align: center;
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  cursor: pointer;
-  box-shadow: 0 0 15px #a0001644;
-}
+    section {
+      padding: 30px 18px;
+    }
 
-.join-button:hover,
-.btn:hover,
-a.button:hover {
-  background: #ed1025;
-}
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
 
-/* НЕ ПОКАЗЫВАТЬ ПУСТЫЕ ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ */
-.decoration:empty,
-.decor:empty,
-.square:empty {
-  display: none;
-}
+    .card {
+      min-width: 0;
+      padding: 30px 22px;
+      text-align: center;
+      background: linear-gradient(145deg, #190506, #090202);
+      border: 1px solid #a11925;
+      box-shadow: 0 0 16px #50000844;
+    }
 
-/* ПОДВАЛ */
-footer {
-  width: 100%;
-  max-width: 1100px;
-  margin: 35px auto 0;
-  padding: 28px 16px;
-  text-align: center;
-  background: linear-gradient(135deg, #8d000b, #170202);
-  border: 1px solid #ff303e;
-}
+    .symbol {
+      margin-bottom: 14px;
+      font-size: 34px;
+    }
 
-footer p {
-  margin: 12px 0;
-  font-size: 14px;
-  line-height: 1.8;
-}
+    h2 {
+      margin: 10px 0 16px;
+      color: #ff4b55;
+      font-size: clamp(21px, 4vw, 30px);
+      line-height: 1.4;
+      overflow-wrap: anywhere;
+    }
 
-/* ТЕЛЕФОНЫ */
-@media (max-width: 600px) {
-  section {
-    padding: 24px 14px;
-  }
+    .card p {
+      margin: 0;
+      font-size: clamp(16px, 3.4vw, 21px);
+      line-height: 1.75;
+      overflow-wrap: anywhere;
+    }
 
-  .cards,
-  .features,
-  .services {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 18px;
-  }
+    .join-area {
+      padding: 25px 18px 55px;
+      text-align: center;
+    }
 
-  .card {
-    padding: 24px 18px;
-  }
+    .join-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 240px;
+      min-height: 56px;
+      padding: 16px 25px;
+      background: linear-gradient(135deg, #e00019, #760008);
+      border: 1px solid #ff4652;
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      box-shadow: 0 0 18px #a0001644;
+      transition: .2s;
+    }
 
-  .card p {
-    line-height: 1.65;
-  }
+    .join-button:hover {
+      background: #ed1025;
+      transform: translateY(-2px);
+    }
 
-  footer {
-    margin-top: 24px;
-    padding: 22px 12px;
-  }
+    footer {
+      width: calc(100% - 36px);
+      max-width: 960px;
+      margin: 0 auto 25px;
+      padding: 24px 14px;
+      text-align: center;
+      background: linear-gradient(135deg, #4d0008, #100202);
+      border: 1px solid #a91a26;
+      letter-spacing: .12em;
+    }
 
-  .join-button,
-  .btn,
-  a.button {
-    width: 100%;
-    max-width: 300px;
-  }
-}
+    .editor-tools {
+      position: sticky;
+      bottom: 0;
+      z-index: 5;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 9px;
+      padding: 12px;
+      background: #100202ee;
+      border-top: 1px solid #65000a;
+    }
+
+    .editor-tools button {
+      padding: 12px 14px;
+      background: #260207;
+      border: 1px solid #ff4652;
+      color: white;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .editor-tools button:hover {
+      background: #79000b;
+    }
+
+    #editStatus {
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .editing [contenteditable="true"] {
+      outline: 1px dashed #ff4652;
+      outline-offset: 5px;
+      background: #21020766;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 40px 16px 25px;
+      }
+
+      section {
+        padding: 22px 14px;
+      }
+
+      .cards {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+      }
+
+      .card {
+        padding: 25px 18px;
+      }
+
+      .card p {
+        line-height: 1.65;
+      }
+
+      .join-button {
+        width: 100%;
+        max-width: 320px;
+      }
+
+      footer {
+        width: calc(100% - 28px);
+        padding: 20px 10px;
+        font-size: 13px;
+      }
+
+      .editor-tools button {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1 data-edit="title">МИРНЫЕ ДЕМОНЫ</h1>
+
+    <p class="intro" data-edit="intro">
+      «мирные демоны» — анонимный телеграм-бот для оказания психологическтй помощи и общения. 
+    </p>
+  </header>
+
+  <main>
+    <section>
+      <div class="cards">
+        <article class="card">
+          <div class="symbol" aria-hidden="true">🩸</div>
+
+          <h2 data-edit="helpTitle">
+            ПСИХОЛОГИЧЕСКАЯ ПОМОЩЬ
+          </h2>
+
+          <p data-edit="helpText">
+            Не держите всё в себе — поделитесь тем,
+            что тревожит. Вас готовы выслушать и поддержать.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="symbol" aria-hidden="true">✧</div>
+
+          <h2 data-edit="chatTitle">ОБЩЕНИЕ</h2>
+
+          <p data-edit="chatText">
+            Диалоги, которые помогут отвлечься от скуки
+            или одиночества. Найдите собеседника
+            и поговорите по душам.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="join-area">
+      <a
+        class="join-button"
+        href="https://t.me/Mirnye_Demony_bot"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-edit="buttonText"
+      >Войти на территорию</a>
+    </section>
+  </main>
+
+  <footer>
+    <p data-edit="footerText">МИРНЫЕ ДЕМОНЫ © 2026</p>
+  </footer>
+
+  <div class="editor-tools">
+    <button type="button" id="editBtn">
+      Редактировать текст
+    </button>
+
+    <button type="button" id="saveBtn" hidden>
+      Сохранить изменения
+    </button>
+
+    <button type="button" id="resetBtn">
+      Сбросить изменения
+    </button>
+
+    <div id="editStatus">
+      Нажми «Редактировать текст», чтобы изменить надписи.
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const editable = [
+        ...document.querySelectorAll("[data-edit]")
+      ];
+
+      const editBtn = document.getElementById("editBtn");
+      const saveBtn = document.getElementById("saveBtn");
+      const resetBtn = document.getElementById("resetBtn");
+      const status = document.getElementById("editStatus");
+
+      const storageKey = "mirnye-demony-text-v2";
+      const defaults = {};
+
+      editable.forEach(el => {
+        defaults[el.dataset.edit] = el.textContent.trim();
+      });
+
+      function loadSaved() {
+        try {
+          const saved = JSON.parse(
+            localStorage.getItem(storageKey) || "{}"
+          );
+
+          editable.forEach(el => {
+            if (typeof saved[el.dataset.edit] === "string") {
+              el.textContent = saved[el.dataset.edit];
+            }
+          });
+        } catch (error) {}
+      }
+
+      function setEditing(enabled) {
+        document.body.classList.toggle("editing", enabled);
+
+        editable.forEach(el => {
+          el.setAttribute(
+            "contenteditable",
+            enabled ? "true" : "false"
+          );
+        });
+
+        editBtn.hidden = enabled;
+        saveBtn.hidden = !enabled;
+
+        status.textContent = enabled
+          ? "Измени текст и нажми «Сохранить изменения»."
+          : "Нажми «Редактировать текст», чтобы изменить надписи.";
+      }
+
+      editBtn.addEventListener("click", () => {
+        setEditing(true);
+      });
+
+      saveBtn.addEventListener("click", () => {
+        const saved = {};
+
+        editable.forEach(el => {
+          saved[el.dataset.edit] = el.textContent.trim();
+        });
+
+        try {
+          localStorage.setItem(
+            storageKey,
+            JSON.stringify(saved)
+          );
+
+          setEditing(false);
+          status.textContent =
+            "Изменения сохранены в этом браузере.";
+        } catch (error) {
+          status.textContent =
+            "Не удалось сохранить изменения автоматически.";
+        }
+      });
+
+      resetBtn.addEventListener("click", () => {
+        if (!confirm("Вернуть исходный текст сайта?")) return;
+
+        editable.forEach(el => {
+          el.textContent = defaults[el.dataset.edit];
+        });
+
+        try {
+          localStorage.removeItem(storageKey);
+        } catch (error) {}
+
+        setEditing(false);
+        status.textContent = "Исходный текст восстановлен.";
+      });
+
+      loadSaved();
+      setEditing(false);
+    })();
+  </script>
+</body>
+</html>
+
+
 
 
 
