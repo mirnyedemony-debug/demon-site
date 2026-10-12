@@ -24,6 +24,7 @@
       background: #080000;
       color: #f5eeee;
       font-family: 'Cormorant Garamond', serif;
+      overflow-x: hidden;
     }
 
     .hero {
@@ -34,20 +35,26 @@
       align-items: center;
       padding: 35px 20px;
       overflow: hidden;
-      background:
-        radial-gradient(ellipse at center, #340000 0%, #130000 48%, #050000 100%);
+      background: radial-gradient(
+        ellipse at center,
+        #340000 0%,
+        #130000 48%,
+        #050000 100%
+      );
     }
 
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(to bottom,
-          rgba(0,0,0,.12),
-          rgba(0,0,0,.15) 55%,
-          #080000 100%);
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, .12),
+        rgba(0, 0, 0, .15) 55%,
+        #080000 100%
+      );
       z-index: 1;
+      pointer-events: none;
     }
 
     .hero-art {
@@ -57,7 +64,7 @@
       height: 100%;
       object-fit: contain;
       opacity: .8;
-      filter: drop-shadow(0 0 25px rgba(255,0,0,.18));
+      filter: drop-shadow(0 0 25px rgba(255, 0, 0, .18));
     }
 
     .content {
@@ -66,11 +73,11 @@
       width: 100%;
       max-width: 760px;
       text-align: center;
-      padding: 45px 20px;
-      background: rgba(8,0,0,.48);
-      border: 1px solid rgba(255,0,0,.18);
-      box-shadow: 0 0 70px rgba(180,0,0,.08);
-      backdrop-filter: blur(2px);
+      padding: 45px 25px;
+      background: rgba(8, 0, 0, .65);
+      border: 1px solid rgba(255, 0, 0, .18);
+      box-shadow: 0 0 70px rgba(180, 0, 0, .08);
+      backdrop-filter: blur(3px);
     }
 
     .symbol {
@@ -84,12 +91,13 @@
       font-family: 'UnifrakturCook', 'Cormorant Garamond', serif;
       font-size: clamp(42px, 8vw, 82px);
       font-weight: 700;
-      line-height: 1.1;
+      line-height: 1.2;
       color: #ff2929;
       text-shadow:
         0 0 5px #ff0000,
-        0 0 20px rgba(255,0,0,.7),
-        0 0 45px rgba(150,0,0,.55);
+        0 0 20px rgba(255, 0, 0, .7),
+        0 0 45px rgba(150, 0, 0, .55);
+      overflow-wrap: anywhere;
     }
 
     .subtitle {
@@ -116,37 +124,34 @@
     }
 
     .button {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 17px 30px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 25px;
+      padding: 16px 28px;
+      max-width: 100%;
       border: 1px solid #ff2929;
       background: linear-gradient(135deg, #a90000, #450000);
       color: white;
+      text-align: center;
       text-decoration: none;
       font-family: 'Cormorant Garamond', serif;
       font-size: 19px;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      box-shadow: 0 0 20px rgba(255,0,0,.22);
+      box-shadow: 0 0 20px rgba(255, 0, 0, .22);
       transition: .3s;
     }
 
     .button:hover {
       background: #d00000;
-      box-shadow: 0 0 35px rgba(255,0,0,.55);
+      box-shadow: 0 0 35px rgba(255, 0, 0, .55);
       transform: translateY(-3px);
     }
 
-    .note {
-      margin-top: 20px;
-      color: #9c7777;
-      font-size: 14px;
-      letter-spacing: 1px;
-    }
-
     .about {
-      padding: 90px 22px;
+      padding: 80px 22px;
       text-align: center;
       background: #080000;
     }
@@ -155,18 +160,32 @@
       color: #ff2929;
       font-family: 'UnifrakturCook', serif;
       font-size: clamp(35px, 6vw, 54px);
-      text-shadow: 0 0 18px rgba(255,0,0,.35);
+      text-shadow: 0 0 18px rgba(255, 0, 0, .35);
+      margin-bottom: 15px;
+    }
+
+    .section-description {
+      max-width: 600px;
+      margin: 0 auto;
+      color: #c7adad;
+      font-size: 19px;
+      line-height: 1.7;
     }
 
     .cards {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
       gap: 20px;
       max-width: 1000px;
       margin: 40px auto 0;
     }
 
     .card {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding: 30px 22px;
       background: linear-gradient(145deg, #1b0707, #0c0303);
       border: 1px solid #481010;
@@ -175,7 +194,7 @@
 
     .card:hover {
       border-color: #b90000;
-      box-shadow: 0 0 25px rgba(255,0,0,.1);
+      box-shadow: 0 0 25px rgba(255, 0, 0, .1);
       transform: translateY(-5px);
     }
 
@@ -187,13 +206,18 @@
     .card h3 {
       color: #ff4747;
       font-size: 25px;
+      line-height: 1.35;
       margin-bottom: 12px;
     }
 
     .card p {
       color: #bca5a5;
-      font-size: 17px;
+      font-size: 18px;
       line-height: 1.7;
+    }
+
+    .join-button {
+      margin-top: 40px;
     }
 
     footer {
@@ -202,23 +226,17 @@
       border-top: 1px solid #321010;
       color: #795b5b;
       font-size: 14px;
+      line-height: 1.8;
     }
 
-    @media (max-width: 650px) {
-      .content {
-        padding: 35px 16px;
-      }
-
-      .subtitle {
-        letter-spacing: 2px;
-      }
-
-      .description {
-        font-size: 17px;
-      }
-
+    @media (max-width: 750px) {
       .cards {
         grid-template-columns: 1fr;
+        max-width: 460px;
+      }
+
+      .card {
+        padding: 28px 22px;
       }
 
       .hero-art {
@@ -227,8 +245,34 @@
       }
     }
 
+    @media (max-width: 480px) {
+      .content {
+        padding: 35px 18px;
+      }
+
+      .subtitle {
+        letter-spacing: 2px;
+      }
+
+      .description {
+        font-size: 18px;
+      }
+
+      .button {
+        width: 100%;
+        padding: 15px 12px;
+        font-size: 17px;
+      }
+
+      .about {
+        padding: 60px 18px;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         scroll-behavior: auto !important;
         transition: none !important;
       }
@@ -239,10 +283,11 @@
 <body>
 
   <main>
+
+    <!-- ГЛАВНЫЙ ЭКРАН -->
+
     <section class="hero">
 
-      <!-- Положи изображение рядом с index.html
-           и назови его demons.jpg -->
       <img
         class="hero-art"
         src="demons.jpg"
@@ -251,6 +296,7 @@
       >
 
       <div class="content">
+
         <div class="symbol">✧</div>
 
         <h1>Мирные демоны</h1>
@@ -262,7 +308,9 @@
         <div class="divider">━━━━ ✦ ━━━━</div>
 
         <p class="description">
-          «мирные демоны». — анонимный телеграм-бот, за которым стоят люди, для оказания психологической поддержки и общения. 
+          «Мирные демоны» — анонимный телеграм-бот,
+          за которым стоят люди, для оказания
+          психологической поддержки и общения.
         </p>
 
         <a
@@ -270,55 +318,93 @@
           href="https://t.me/Mirnye_Demony"
           target="_blank"
           rel="noopener noreferrer"
-      <section class="about">
-      <h2>наши услуги:</h2>
+        >
+          Войти на территорию клана
+        </a>
 
-      <div class="cards">
-        <article class="card">
-          <div class="icon">☽</div>
-          <h3>Анонимность</h3>
-          <p>
-            не бойтесь за свою конфиденциальность. 
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="icon">🩸</div>
-          <h3>психологическая помощь</h3>
-          <p>
-            не держите всё в себе, выплесните. наш долг — направлять Вас. 
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="icon">✧</div>
-          <h3>Общение</h3>
-          <p>
-            диалоги, которые утолят скуку
-          или одиночество. 
-          </p>
-        </article>
       </div>
 
+    </section>
+
+    <!-- УСЛУГИ -->
+
+    <section class="about">
+
+      <h2>Наши услуги</h2>
+
+      <p class="section-description">
+        Пространство для общения, поддержки
+        и искренних разговоров.
+      </p>
+
+      <div class="cards">
+
+        <article class="card">
+
+          <div class="icon">☽</div>
+
+          <h3>Анонимность</h3>
+
+          <p>
+            Не бойтесь за свою конфиденциальность.
+            Берегите личные данные и помните,
+            что абсолютная анонимность не гарантируется.
+          </p>
+
+        </article>
+
+        <article class="card">
+
+          <div class="icon">🩸</div>
+
+          <h3>Психологическая помощь</h3>
+
+          <p>
+            Не держите всё в себе — поделитесь
+            переживаниями. Мы готовы выслушать
+            и поддержать вас.
+          </p>
+
+        </article>
+
+        <article class="card">
+
+          <div class="icon">✧</div>
+
+          <h3>Общение</h3>
+
+          <p>
+            Диалоги, которые помогут скрасить
+            скуку или одиночество и найти
+            интересного собеседника.
+          </p>
+
+        </article>
+
+      </div>
+
+      <!-- КНОПКА ПРИСОЕДИНЕНИЯ -->
+
       <a
-        class="button"
-        href="http://t.me/Mirnye_Demony_bot"
+        class="button join-button"
+        href="https://t.me/Mirnye_Demony_bot"
         target="_blank"
         rel="noopener noreferrer"
-        войти на территорию клана. 
+      >
+        Присоединиться к клану
       </a>
+
     </section>
+
   </main>
 
   <footer>
     <p>МИРНЫЕ ДЕМОНЫ © 2026</p>
-    <p style="margin-top: 10px;">
-      
-    </p>
   </footer>
 
 </body>
 </html>
+
 
 
 
