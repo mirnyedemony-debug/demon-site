@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -267,9 +268,15 @@
       }
     }
 
+    /* КНОПКИ */
     .join-area {
       padding: 25px 18px 55px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
     }
 
     .join-symbol {
@@ -282,21 +289,27 @@
     }
 
     .join-button {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
-      min-width: 240px;
+      width: 100%;
+      max-width: 320px;
+      min-width: 0;
       min-height: 56px;
-      padding: 16px 25px;
+      margin: 0 auto;
+      padding: 16px 20px;
       background: linear-gradient(135deg, #e00019, #760008);
       background-size: 200% 200%;
       border: 1px solid #ff4652;
       color: #fff;
       text-decoration: none;
       text-align: center;
+      font-family: inherit;
       font-size: 21px;
       font-weight: 700;
+      line-height: 1.35;
       letter-spacing: 1px;
+      overflow-wrap: anywhere;
       box-shadow: 0 0 18px #a0001644;
       animation: buttonShine 5s ease-in-out infinite;
       transition: transform .25s, box-shadow .25s;
@@ -308,7 +321,7 @@
     }
 
     .join-button:hover {
-      transform: translateY(-4px) scale(1.02);
+      transform: translateY(-4px);
       box-shadow: 0 0 30px #ff001f88;
     }
 
@@ -400,9 +413,17 @@
         line-height: 1.65;
       }
 
+      .join-area {
+        padding: 25px 18px 55px;
+        gap: 16px;
+      }
+
       .join-button {
         width: 100%;
         max-width: 320px;
+        min-height: 56px;
+        padding: 16px 12px;
+        font-size: 20px;
       }
 
       footer {
@@ -442,20 +463,19 @@
       <div class="slide">
         <div class="slide-symbol">♱</div>
         <div class="slide-line"></div>
-        <div class="slide-caption">мы хотим искупить грехи помогая Вам. </div>
+        <div class="slide-caption">мы хотим искупить грехи помогая Вам.</div>
       </div>
 
       <div class="slide">
         <div class="slide-symbol">𖤐</div>
         <div class="slide-line"></div>
-        <div class="slide-caption">это место было создано для искупления наших грехов. 
-      </div>
+        <div class="slide-caption">это место было создано для искупления наших грехов.</div>
       </div>
 
       <div class="slide">
         <div class="slide-symbol">☽</div>
         <div class="slide-line"></div>
-        <div class="slide-caption">мы ждём именно Вас. </div>
+        <div class="slide-caption">мы ждём именно Вас.</div>
       </div>
     </div>
 
@@ -480,9 +500,8 @@
           </h2>
 
           <p data-edit="helpText">
-            не насилуйте душу, если она невпокое. 
-            Наш долг, помочь вашей душе исцелиться, направить вас на правильный путь, если вы в смятении. 
-    
+            не насилуйте душу, если она невпокое.
+            Наш долг, помочь вашей душе исцелиться, направить вас на правильный путь, если вы в смятении.
           </p>
         </article>
 
@@ -492,7 +511,7 @@
           <h2 data-edit="chatTitle">ОБЩЕНИЕ</h2>
 
           <p data-edit="chatText">
-             атмосферные диалоги, которые помогут утолить скуку или одиночество. здесь вы найдёте своего человека. 
+            атмосферные диалоги, которые помогут утолить скуку или одиночество. здесь вы найдёте своего человека.
           </p>
         </article>
 
@@ -512,15 +531,29 @@
         data-edit="buttonText"
       >✧ Войти на территорию ✧</a>
     </section>
-   <section class="join-area">
-  <a
-    class="join-button"
-    href="https://dalink.to/mirnye_demony"
-    target="_blank"
-    rel="noopener noreferrer"
-  >✧ Поддержать проект донатом ✧</a>
+
+    <section class="join-area">
+      <a
+        class="join-button"
+        href="https://dalink.to/mirnye_demony"
+        target="_blank"
+        rel="noopener noreferrer"
+      >✧ Поддержать проект донатом ✧</a>
     </section>
+
   </main>
+
+  <footer>
+    <p data-edit="footerText">
+      <span class="footer-symbol">†</span>
+      принадлежит проекту: @Mirnye_Demony_bot
+      <span class="footer-symbol">†</span>
+    </p>
+  </footer>
+
+</body>
+</html>
+
     
 
 
