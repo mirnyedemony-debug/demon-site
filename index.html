@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -316,6 +317,37 @@
       transform: scale(.97);
     }
 
+    /* Кнопка доната — компактнее основной */
+    .donate-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 190px;
+      min-height: 44px;
+      padding: 10px 18px;
+      margin-top: 14px;
+      background: linear-gradient(135deg, #4d0008, #190202);
+      border: 1px solid #a11925;
+      color: #f5c5cc;
+      text-decoration: none;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      box-shadow: 0 0 12px #a0001622;
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+    }
+
+    .donate-button:hover {
+      transform: translateY(-3px);
+      border-color: #ff4652;
+      box-shadow: 0 0 22px #a0001655;
+    }
+
+    .donate-button:active {
+      transform: scale(.97);
+    }
+
     footer {
       width: calc(100% - 36px);
       max-width: 960px;
@@ -405,6 +437,12 @@
         max-width: 320px;
       }
 
+      .donate-button {
+        width: 100%;
+        max-width: 260px;
+        min-width: 0;
+      }
+
       footer {
         width: calc(100% - 28px);
         padding: 20px 10px;
@@ -442,20 +480,19 @@
       <div class="slide">
         <div class="slide-symbol">♱</div>
         <div class="slide-line"></div>
-        <div class="slide-caption">мы хотим искупить грехи помогая Вам. </div>
+        <div class="slide-caption">мы хотим искупить грехи помогая Вам.</div>
       </div>
 
       <div class="slide">
         <div class="slide-symbol">𖤐</div>
         <div class="slide-line"></div>
-        <div class="slide-caption">это место было создано для искупления наших грехов. 
-      </div>
+        <div class="slide-caption">это место было создано для искупления наших грехов.</div>
       </div>
 
       <div class="slide">
         <div class="slide-symbol">☽</div>
         <div class="slide-line"></div>
-        <div class="slide-caption">мы ждём именно Вас. </div>
+        <div class="slide-caption">мы ждём именно Вас.</div>
       </div>
     </div>
 
@@ -480,9 +517,8 @@
           </h2>
 
           <p data-edit="helpText">
-            не насилуйте душу, если она невпокое. 
-            Наш долг, помочь вашей душе исцелиться, направить вас на правильный путь, если вы в смятении. 
-    
+            не насилуйте душу, если она невпокое.
+            Наш долг, помочь вашей душе исцелиться, направить вас на правильный путь, если вы в смятении.
           </p>
         </article>
 
@@ -492,7 +528,7 @@
           <h2 data-edit="chatTitle">ОБЩЕНИЕ</h2>
 
           <p data-edit="chatText">
-             атмосферные диалоги, которые помогут утолить скуку или одиночество. здесь вы найдёте своего человека. 
+            атмосферные диалоги, которые помогут утолить скуку или одиночество. здесь вы найдёте своего человека.
           </p>
         </article>
 
@@ -511,21 +547,29 @@
         rel="noopener noreferrer"
         data-edit="buttonText"
       >✧ Войти на территорию ✧</a>
-    </section>
-  </main>
-  <a
-        class="join-button"
+
+      <br>
+
+      <a
+        class="donate-button"
         href="https://dalink.to/mirnye_demony"
         target="_blank"
         rel="noopener noreferrer"
-        data-edit="buttonText"
-      >поддержать проект донатом</a>
+      >♡ Поддержать проект ♡</a>
     </section>
-</main>
+  </main>
+
+  <footer>
     <p data-edit="footerText">
       <span class="footer-symbol">†</span>
       принадлежит проекту: @Mirnye_Demony_bot
       <span class="footer-symbol">†</span>
+    </p>
+  </footer>
+
+</body>
+</html>
+
     
 
 
